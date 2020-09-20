@@ -46,7 +46,6 @@ def wait_test():
 	while True:
 		if(str(media_object.get_state()) == "State.Ended"):
 			set_play_media()
-			print("lol")
 			return
 
 countdown_thread = threading.Thread(target = wait_test)
@@ -164,7 +163,6 @@ def activate_shuffle():
 	else:
 		shuffle_on.configure(text="SHUFFLE OFF")
 		default_shuffle = False
-	print(default_shuffle)
 
 shuffle_audio = tk.Button(root, text="SHUFFLE"+"\n"+"AUDIO", bg="gainsboro", activebackground="gainsboro", command=activate_shuffle)
 shuffle_audio.place(rely=0.863, relx=0.82, height=60, width=60)
