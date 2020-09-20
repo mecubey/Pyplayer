@@ -4,6 +4,8 @@ import tkinter as tk
 from os import listdir
 from os.path import isfile, join
 import vlc
+import time
+import threading
 
 root = tk.Tk()
 
@@ -18,6 +20,7 @@ current_song = tk.Label(root, text="", height=1, width=100, bg="black", fg="whit
 current_song.pack(pady=3)
 
 files_list = []
+new_file_list = []
 
 audiofiles = tk.Listbox(root, width=87, height=20, bg="black", fg="white")
 audiofiles.place(relx=0.0, rely="0.1")
@@ -32,16 +35,42 @@ def list_audio():
 media_object = vlc.MediaPlayer()
 media_object.audio_set_volume(100)
 
+def wait_test():
+	time.sleep(1.5)
+	duration = media_object.get_length()/1000
+	time.sleep(duration)
+	set_play_media()
+	print("lol")
+
+countdown_thread = threading.Thread(target = wait_test)
+
+def set_play_media():
+	countdown_thread = threading.Thread(target = wait_test) 
+	media_object.stop()
+	try:
+		media = vlc.Media(dir_name.get() + "/" + new_file_list[new_file_list.index(current_song.cget("text"))+1])
+		current_song.configure(text=new_file_list[new_file_list.index(current_song.cget("text"))+1])
+		media_object.set_media(media)
+		media_object.play()
+	except:
+		media = vlc.Media(dir_name.get() + "/" + new_file_list[0])
+		current_song.configure(text=new_file_list[0])
+		media_object.set_media(media)
+		media_object.play()
+		
+	countdown_thread.start()
+
 def play_audio():
+	global new_file_list
 	media_object.stop()
 	current_song.configure(text=audiofiles.get(tk.ANCHOR))
 	
 	new_file_list = files_list[files_list.index(current_song.cget("text")):] + files_list[:files_list.index(current_song.cget("text"))] 
 	
-	for i in new_file_list:
-		media = vlc.Media(dir_name.get() + "/" + i)
-		media_object.set_media(media)
-		media_object.play()
+	media = vlc.Media(dir_name.get() + "/" + audiofiles.get(tk.ANCHOR))
+	media_object.set_media(media)
+	media_object.play()
+	countdown_thread.start()
 
 def pause_audio():
 	media_object.pause()
@@ -68,10 +97,16 @@ def next_audio():
 
 def previous_audio():
 	media_object.stop()
-	media = vlc.Media(dir_name.get() + "/" + files_list[files_list.index(current_song.cget("text"))-1])
-	media_object.set_media(media)
-	current_song.configure(text=files_list[files_list.index(current_song.cget("text"))-1])
-	media_object.play()
+	try:
+		media = vlc.Media(dir_name.get() + "/" + files_list[files_list.index(current_song.cget("text"))-1])
+		media_object.set_media(media)
+		current_song.configure(text=files_list[files_list.index(current_song.cget("text"))-1])
+		media_object.play()
+	except:
+		media = vlc.Media(dir_name.get() + "/" + files_list[0])
+		media_object.set_media(media)
+		current_song.configure(text=files_list[files_list.index(current_song.cget("text"))-1])
+		media_object.play()
 
 
 control_audio = tk.Canvas(root, width=697.5, height=75, bg="black")
