@@ -23,6 +23,9 @@ current_song.pack(pady=3)
 shuffle_on = tk.Label(root, text="SHUFFLE OFF", height=1, width=15, bg="black", fg="white")
 shuffle_on.place(relx=0.1,rely=0.0)
 
+repeat_on = tk.Label(root, text="REPEAT OFF", height=1, width=15, bg="black", fg="white")
+repeat_on.place(relx=0.75,rely=0.0)
+
 files_list = []
 new_file_list = []
 
@@ -31,6 +34,7 @@ audiofiles.place(relx=0.0, rely="0.1")
 
 dead = False
 default_shuffle = False
+default_repeat = False
 
 def list_audio():
 	audiofiles.delete(0, tk.END)
@@ -55,24 +59,28 @@ def set_play_media():
 	countdown_thread = threading.Thread(target = wait_test) 
 	media_object.stop()
 	
-	if(default_shuffle == False):
-		try:
-			media = vlc.Media(dir_name.get() + "/" + new_file_list[new_file_list.index(current_song.cget("text"))+1])
-			current_song.configure(text=new_file_list[new_file_list.index(current_song.cget("text"))+1])
-			media_object.set_media(media)
-			media_object.play()
-		except:
-			media = vlc.Media(dir_name.get() + "/" + new_file_list[0])
-			current_song.configure(text=new_file_list[0])
+	if(default_repeat == False):
+		if(default_shuffle == False):
+			try:
+				media = vlc.Media(dir_name.get() + "/" + new_file_list[new_file_list.index(current_song.cget("text"))+1])
+				current_song.configure(text=new_file_list[new_file_list.index(current_song.cget("text"))+1])
+				media_object.set_media(media)
+				media_object.play()
+			except:
+				media = vlc.Media(dir_name.get() + "/" + new_file_list[0])
+				current_song.configure(text=new_file_list[0])
+				media_object.set_media(media)
+				media_object.play()
+		else:
+			random_audio = random.choice(new_file_list) 
+			media = vlc.Media(dir_name.get() + "/" + random_audio)
+			current_song.configure(text=random_audio)
 			media_object.set_media(media)
 			media_object.play()
 	else:
-		random_audio = random.choice(new_file_list) 
-		media = vlc.Media(dir_name.get() + "/" + random_audio)
-		current_song.configure(text=random_audio)
+		media = vlc.Media(dir_name.get() + "/" + current_song.cget("text"))
 		media_object.set_media(media)
 		media_object.play()
-			
 	countdown_thread.start()
 
 def play_audio():
@@ -149,11 +157,23 @@ volume_down.place(rely=0.863, relx=0.32, height=60, width=60)
 volume_up = tk.Button(root, text="VOLUME"+"\n"+"UP", bg="gainsboro", activebackground="gainsboro", command=increase_audio)
 volume_up.place(rely=0.863, relx=0.42, height=60, width=60)
 
+def activate_repeat():
+	global default_repeat
+	if(default_repeat == False):
+		default_repeat = True
+		repeat_on.configure(text="REPEAT ON")
+	else:
+		default_repeat = False
+		repeat_on.configure(text="REPEAT OFF")
+
+repeat_option = tk.Button(root, text="REPEAT"+"\n"+"AUDIO", bg="gainsboro", activebackground="gainsboro", command=activate_repeat)
+repeat_option.place(rely=0.863, relx=0.56, height=60, width=60)
+
 play_audio = tk.Button(root, text="PLAY"+"\n"+"AUDIO", bg="gainsboro", activebackground="gainsboro", command=play_audio)
-play_audio.place(rely=0.863, relx=0.62, height=60, width=60)
+play_audio.place(rely=0.863, relx=0.70, height=60, width=60)
 
 choose_dir = tk.Button(root, text="CHOOSE"+"\n"+"DIRECTORY", bg="gainsboro", activebackground="gainsboro", command=list_audio)
-choose_dir.place(rely=0.863, relx=0.72, height=60, width=60)
+choose_dir.place(rely=0.863, relx=0.80, height=60, width=60)
 
 def activate_shuffle():
 	global default_shuffle
@@ -165,6 +185,6 @@ def activate_shuffle():
 		default_shuffle = False
 
 shuffle_audio = tk.Button(root, text="SHUFFLE"+"\n"+"AUDIO", bg="gainsboro", activebackground="gainsboro", command=activate_shuffle)
-shuffle_audio.place(rely=0.863, relx=0.82, height=60, width=60)
+shuffle_audio.place(rely=0.863, relx=0.90, height=60, width=60)
 
 root.mainloop()
