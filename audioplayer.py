@@ -25,6 +25,8 @@ new_file_list = []
 audiofiles = tk.Listbox(root, width=87, height=20, bg="black", fg="white")
 audiofiles.place(relx=0.0, rely="0.1")
 
+dead = False
+
 def list_audio():
 	audiofiles.delete(0, tk.END)
 	for i in [f for f in listdir(dir_name.get()) if isfile(join(dir_name.get(), f))]:
@@ -36,11 +38,11 @@ media_object = vlc.MediaPlayer()
 media_object.audio_set_volume(100)
 
 def wait_test():
-	time.sleep(1.5)
-	duration = media_object.get_length()/1000
-	time.sleep(duration)
-	set_play_media()
-	print("lol")
+	while True:
+		if(str(media_object.get_state()) == "State.Ended"):
+			set_play_media()
+			print("lol")
+			return
 
 countdown_thread = threading.Thread(target = wait_test)
 
