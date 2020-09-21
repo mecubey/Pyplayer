@@ -1,7 +1,7 @@
 # *Pyplayer*
 
 ## An open source audio player
-This is an open source audio-file player built with python and various libraries, use it however you want.
+This is an open source audiofile player built with python and various libraries, use it however you want.
 
 ## How to build
 
