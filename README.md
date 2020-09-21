@@ -33,4 +33,4 @@ Python file must be in same directory as image files!
 python3 audioplayer.py
 ```
 
-Copy the directory-path of the directory (where all your audiofiles are) into the input field inside the program, after that click the second button from right to load the directory into the program. Now you can select any song you want and play it with the play button. All the audiofiles inside the directory will play like a normal playlist. (You can shuffle, repeat specified audiofile aswell as specify a default directory for your audiofiles inside the "audio_config.txt" file.)
+Copy the directory-path of the directory (where all your audiofiles are) into the input field inside the program, after that click the second button from right to load the directory into the program. Now you can select any song you want and play it with the play button. All the audiofiles inside the directory will play like a normal playlist. (You can shuffle and repeat specified audiofiles aswell as specify a default directory for your audiofiles inside the "audio_config.txt" file.)
