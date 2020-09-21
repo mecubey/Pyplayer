@@ -26,7 +26,7 @@ If any windows users get an ImportError, try:
 ```
 pip3 install pillow
 ```
-Pythonf file must be in same directory as image files!
+Python file must be in same directory as image files!
 
 ## How to use
 ```
