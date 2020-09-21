@@ -21,6 +21,11 @@ root.configure(background="black")
 #field to put audiofiles-directory in
 dir_name = tk.Entry(root, width=30)
 dir_name.pack()
+abs_path = os.path.dirname(os.path.realpath(__file__))
+file_path_default = ""
+with open(abs_path + "/audio_config.txt", "r") as f:
+	file_path_default = ((f.read()).strip()).split("=")
+dir_name.insert(0, file_path_default[1])
 
 #showing song that is currently playing
 current_song = tk.Label(root, text="", height=1, width=100, bg="black", fg="white")
