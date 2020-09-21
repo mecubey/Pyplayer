@@ -195,7 +195,7 @@ def previous_audio():
 audio_symbols = []
 abs_file_path = os.path.dirname(os.path.realpath(__file__))
 symbol_names = ["go_back.png", "pause_play.png", "go_next.png", "volume_down.png", "volume_up.png",
-								"repeat_audio.png", "play_song.png", "choose_dir.png", "shuffle_audio.png", "pause_audio.png"]
+								"repeat_audio.png", "play_song.png", "choose_dir.png", "shuffle_audio.png"]
 for i in symbol_names:
 	audio_image_path = os.path.join(abs_file_path, i)
 	audio_image = Image.open(audio_image_path)
