@@ -59,6 +59,7 @@ def list_audio():
 	"""
 
 	audiofiles.delete(0, tk.END)
+	files_list.clear()
 	for i in [f for f in listdir(dir_name.get()) if isfile(join(dir_name.get(), f))]:
 		files_list.append(i)
 	for i in files_list:
@@ -138,9 +139,6 @@ def play_audio():
 	media_object.play()
 	countdown_thread.start()
 
-def pause_audio():
-	media_object.pause()
-
 def increase_audio():
 	media_object.audio_set_volume(media_object.audio_get_volume()+10)
 
@@ -197,7 +195,7 @@ def previous_audio():
 audio_symbols = []
 abs_file_path = os.path.dirname(os.path.realpath(__file__))
 symbol_names = ["go_back.png", "pause_play.png", "go_next.png", "volume_down.png", "volume_up.png",
-								"repeat_audio.png", "play_song.png", "choose_dir.png", "shuffle_audio.png"]
+								"repeat_audio.png", "play_song.png", "choose_dir.png", "shuffle_audio.png", "pause_audio.png"]
 for i in symbol_names:
 	audio_image_path = os.path.join(abs_file_path, i)
 	audio_image = Image.open(audio_image_path)
@@ -211,6 +209,9 @@ control_audio.place(rely=0.845, relx=0.0)
 
 go_back = tk.Button(root, text="", image=audio_symbols[0], command=previous_audio)
 go_back.place(rely=0.863, relx=0.02, height=60, width=60)
+
+def pause_audio():
+	media_object.pause()
 
 pause_play = tk.Button(root, text="", image=audio_symbols[1], command=pause_audio)
 pause_play.place(rely=0.863, relx=0.12, height=60, width=60)
