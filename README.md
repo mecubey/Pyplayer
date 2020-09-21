@@ -26,5 +26,11 @@ If any windows users get an ImportError, try:
 ```
 pip3 install pillow
 ```
+Pythonf file must be in same directory as image files!
+
 ## How to use
+```
+python3 audioplayer.py
+```
+
 Copy the directory-path of the directory (where all your audiofiles are) into the input field inside the program, after that click the second button from right to load the directory into the program. Now you can select any song you want and play it with the play button. All the audiofiles inside the directory will play like a normal playlist. (You can shuffle and repeat a specified audiofile aswell)
