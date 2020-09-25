@@ -3,7 +3,7 @@
 ## An open source audioplayer
 This is an open source audiofile player built with python and various libraries, use it however you want.
 
-## How to build
+## Build
 
 Dependencies:
 - any Python3 version 
@@ -24,7 +24,7 @@ Archlinux: sudo pacman -S python-pillow or sudo pacman -S python-pillow
 
 Python file must be in same directory as image files!
 
-## How to use
+## Usage
 ```
 python3 audioplayer.py
 ```
