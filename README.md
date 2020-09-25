@@ -22,10 +22,6 @@ Debian/Ubuntu: sudo apt-get install python3-pil python3-pil.imagetk
 Archlinux: sudo pacman -S python-pillow or sudo pacman -S python-pillow
 ```
 
-If any windows users get an ImportError, try:
-```
-pip3 install pillow
-```
 Python file must be in same directory as image files!
 
 ## How to use
