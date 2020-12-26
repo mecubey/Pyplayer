@@ -13,7 +13,7 @@ Simply install the ZIP file, unzip with your preferred program and execute the "
 ### FOR LINUX USERS:
 Dependencies:
 - any Python3 version 
-- python-vlc and tkinter (tkinter usually comes with the installation of Python3) module
+- python-vlc and tkinter (tkinter usually comes with the installation of Python3) modules
 
 How to install modules:
 ```
