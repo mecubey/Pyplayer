@@ -5,6 +5,8 @@ This is an open source audiofile player built with python and various libraries,
 
 ## Installation
 
+### FOR ALL
+Python file must be in same directory as image files!
 Install the VLC mediaplayer.
 
 ### FOR WINDOWS USERS:
@@ -23,6 +25,3 @@ Put a "shebang" at the top of the "main.py" file and mark it as an executable.
 #!/usr/bin/env python 
 chmod +x main.py
 ```
-
-### FOR ALL
-Python file must be in same directory as image files!
