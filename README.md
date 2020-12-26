@@ -15,18 +15,14 @@ Dependencies:
 - any Python3 version 
 - python-vlc and tkinter (tkinter usually comes with the installation of Python3) modules
 
-How to install modules:
 ```
 pip3 install python-vlc
 ```
+Put a "shebang" at the top of the "main.py" file and mark it as an executable.
+```
+#!/usr/bin/env python 
+chmod +x main.py
+```
 
+### FOR ALL
 Python file must be in same directory as image files!
-
-## Usage
-```
-python3 audioplayer.py
-```
-
-Copy the directory-path of the directory (where all your audiofiles are) into the input field inside the program.
-Load your song playlist with the second button from right.
-Enjoy!
