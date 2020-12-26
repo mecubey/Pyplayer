@@ -6,8 +6,8 @@ This is an open source audiofile player built with python and various libraries,
 ## Installation
 
 ### FOR ALL
-Python file must be in same directory as image files!
-Install the VLC mediaplayer.
+- all files must be in the same directory
+- install the VLC mediaplayer
 
 ### FOR WINDOWS USERS:
 Simply install the ZIP file, unzip with your preferred program and execute the "pyplayer.exe" file.
