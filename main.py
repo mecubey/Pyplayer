@@ -200,7 +200,7 @@ def previous_audio():
 control_audio = tk.Canvas(root, width=697.5, height=75, bg="black")
 control_audio.place(rely=0.845, relx=0.0)
 
-go_back_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\go_back.png")
+go_back_img = PhotoImage(file = r"go_back.png")
 
 go_back = tk.Button(root, text="", image = go_back_img, command=previous_audio)
 go_back.place(rely=0.863, relx=0.02, height=60, width=60)
@@ -209,19 +209,19 @@ go_back.place(rely=0.863, relx=0.02, height=60, width=60)
 def pause_audio():
     media_object.pause()
 
-pause_play_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\pause_play.png")
+pause_play_img = PhotoImage(file = r"pause_play.png")
 pause_play = tk.Button(root, text="", image = pause_play_img, command=pause_audio)
 pause_play.place(rely=0.863, relx=0.12, height=60, width=60)
 
-go_next_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\go_next.png")
+go_next_img = PhotoImage(file = r"go_next.png")
 go_next = tk.Button(root, text="", image = go_next_img, command=next_audio)
 go_next.place(rely=0.863, relx=0.22, height=60, width=60)
 
-volume_down_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\volume_down.png")
+volume_down_img = PhotoImage(file = r"volume_down.png")
 volume_down = tk.Button(root, text="", image = volume_down_img, command=decrease_audio)
 volume_down.place(rely=0.863, relx=0.32, height=60, width=60)
 
-volume_up_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\volume_up.png")
+volume_up_img = PhotoImage(file = r"volume_up.png")
 volume_up = tk.Button(root, text="", image = volume_up_img,command=increase_audio)
 volume_up.place(rely=0.863, relx=0.42, height=60, width=60)
 
@@ -239,15 +239,15 @@ def activate_repeat():
         default_repeat = False
         repeat_on.configure(text="REPEAT OFF")
 
-repeat_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\repeat_audio.png")
+repeat_img = PhotoImage(file = r"repeat_audio.png")
 repeat_option = tk.Button(root, text="", image = repeat_img, command=activate_repeat)
 repeat_option.place(rely=0.863, relx=0.56, height=60, width=60)
 
-play_audio_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\play_song.png")
+play_audio_img = PhotoImage(file = r"play_song.png")
 play_audio = tk.Button(root, text="", image = play_audio_img, command=play_audio)
 play_audio.place(rely=0.863, relx=0.70, height=60, width=60)
 
-choose_dir_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\choose_dir.png")
+choose_dir_img = PhotoImage(file = r"choose_dir.png")
 choose_dir = tk.Button(root, text="", image = choose_dir_img, command=list_audio)
 choose_dir.place(rely=0.863, relx=0.80, height=60, width=60)
 
@@ -265,7 +265,7 @@ def activate_shuffle():
         shuffle_on.configure(text="SHUFFLE OFF")
         default_shuffle = False
 
-shuffle_audio_img = PhotoImage(file = r"C:\Users\Aytur\PycharmProjects\Pyplayer\shuffle_audio.png")
+shuffle_audio_img = PhotoImage(file = r"shuffle_audio.png")
 shuffle_audio = tk.Button(root, text="", image = shuffle_audio_img, command=activate_shuffle)
 shuffle_audio.place(rely=0.863, relx=0.90, height=60, width=60)
 
