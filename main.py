@@ -81,6 +81,7 @@ def wait_test():
         if (str(media_object.get_state()) == "State.Ended"):
             set_play_media()
             return
+        time.sleep(1)
 
 
 countdown_thread = threading.Thread(target=wait_test)
