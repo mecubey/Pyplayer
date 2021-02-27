@@ -5,23 +5,7 @@ This is an open source audiofile player built with python and various libraries,
 
 ## Installation
 
-### FOR ALL
 - all files must be in the same directory
 - install the VLC mediaplayer
 
-### FOR WINDOWS USERS:
 Simply install the ZIP file, unzip with your preferred program and execute the "pyplayer.exe" file.
-
-### FOR LINUX USERS:
-Dependencies:
-- any Python3 version 
-- python-vlc and tkinter (tkinter usually comes with the installation of Python3) modules
-
-```
-pip3 install python-vlc
-```
-Put a "shebang" at the top of the "main.py" file and mark it as an executable.
-```
-#!/usr/bin/env python 
-chmod +x main.py
-```
